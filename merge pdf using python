@@ -1,0 +1,14 @@
+## Make sure the merging files are in same order in folder as they should be merged
+
+from PyPDF2 import PdfFileMerger # pip install PyPDF2 use if not installed library pypdf2
+os.chdir('C:/Users/2019c/Desktop/My BOOKs LIst/reference books/dld/books/unread') #Replace the quoted path with path of folder containing all files together
+extension = 'pdf'
+all_filenames = [i for i in glob.glob('*.{}'.format(extension))]
+merger = PdfFileMerger()
+
+for pdf in all_filenames:
+    print(pdf)
+    merger.append(pdf)
+        
+merger.write("combine.pdf") #final merger file name is combine.csv
+merger.close()
